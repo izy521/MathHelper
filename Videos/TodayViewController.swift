@@ -14,7 +14,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UIPickerViewDele
     let chapterData = [1,2,3,4,5,6,7,8,9,10,11,12,13]
     let lessonData = [1,2,3,4,5,6,7,8,9,10]
     let classData = ["Pre Algebra","Algebra 1"]
-    var data = ["ada","01","01"]
+    var data = ["ade","01","01"]
     override func viewDidLoad() {
         super.viewDidLoad()
         self.preferredContentSize.height = 300
@@ -30,11 +30,11 @@ class TodayViewController: UIViewController, NCWidgetProviding, UIPickerViewDele
     
     func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)!) {
         // Perform any setup necessary in order to update the view.
-        
+
         // If an error is encountered, use NCUpdateResult.Failed
         // If there's no update required, use NCUpdateResult.NoData
         // If there's an update, use NCUpdateResult.NewData
-        
+
         completionHandler(NCUpdateResult.NewData)
     }
     func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets{
@@ -69,9 +69,9 @@ class TodayViewController: UIViewController, NCWidgetProviding, UIPickerViewDele
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if(component == 0){
             if(row == 0){
-                data[0] = "ada"
+                data[0] = "ade"
             }else if(row == 1){
-                data[0] = "ata"
+                data[0] = "ate"
             }
         }else if(component == 1 || component == 2){
             if(row+1 < 10){
@@ -88,7 +88,6 @@ class TodayViewController: UIViewController, NCWidgetProviding, UIPickerViewDele
         self.extensionContext!.openURL(url,nil)
     }
     //@IBAction func GoVideo(sender: AnyObject) {
-    //UIApplication.sharedApplication().openURL(NSURL(string:"puffin://www.phschool.com/webcodes10/index.cfm?wcprefix=\(data[0])&wcsuffix=\(data[1])\(data[2])&area=view")!)
+        //UIApplication.sharedApplication().openURL(NSURL(string:"puffin://www.phschool.com/webcodes10/index.cfm?wcprefix=\(data[0])&wcsuffix=\(data[1])\(data[2])&area=view")!)
     //}
-    
 }
