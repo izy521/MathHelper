@@ -9,7 +9,6 @@
 import UIKit
 
 class SecondViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate,UIAlertViewDelegate {
-    
     @IBOutlet weak var picker: UIPickerView!
     let chapterData = [1,2,3,4,5,6,7,8,9,10,11,12,13]
     let lessonData = [1,2,3,4,5,6,7,8,9,10]
@@ -17,7 +16,7 @@ class SecondViewController: UIViewController,UIPickerViewDataSource,UIPickerView
     var data = ["ada","01","01"]
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(patternImage: UIImage(named: "Repeat")!)
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "Background")!)
         picker.delegate = self
         picker.dataSource = self
     }
@@ -25,6 +24,7 @@ class SecondViewController: UIViewController,UIPickerViewDataSource,UIPickerView
     override func viewDidAppear(animated: Bool) {
         if(NSUserDefaults.standardUserDefaults().boolForKey("alg")){
             picker.selectRow(1, inComponent: 0, animated: true)
+            data[0] = "ata"
         }else{
             picker.selectRow(0, inComponent: 0, animated: true)
         }
@@ -95,10 +95,13 @@ class SecondViewController: UIViewController,UIPickerViewDataSource,UIPickerView
         }
     }
     @IBAction func goQuiz(sender: AnyObject) {
-        if(NSUserDefaults.standardUserDefaults().boolForKey("lq_puffin")){
-            UIApplication.sharedApplication().openURL(NSURL(string:"puffin://www.phschool.com/webcodes10/index.cfm?wcprefix=\(data[0])&wcsuffix=\(data[1])\(data[2])&area=view")!)
+        if(NSUserDefaults.standardUserDefaults().boolForKey("lq_builtin")){
+            var web:SVModalWebViewController = SVModalWebViewController(address: "http://www.phschool.com/webcodes10/index.cfm?wcprefix=\(self.data[0])&wcsuffix=\(self.data[1])\(self.data[2])&area=view")
+            self.presentViewController(web, animated: true, completion: nil)
+        }else if(NSUserDefaults.standardUserDefaults().boolForKey("lq_puffin")){
+            UIApplication.sharedApplication().openURL(NSURL(string:"puffin://www.phschool.com/webcodes10/index.cfm?wcprefix=\(self.data[0])&wcsuffix=\(self.data[1])\(self.data[2])&area=view")!)
         }else{
-            UIApplication.sharedApplication().openURL(NSURL(string:"http://www.phschool.com/webcodes10/index.cfm?wcprefix=\(data[0])&wcsuffix=\(data[1])\(data[2])&area=view")!)
+            UIApplication.sharedApplication().openURL(NSURL(string:"http://www.phschool.com/webcodes10/index.cfm?wcprefix=\(self.data[0)&wcsuffix=\(self.data[1])\(self.data[2])&area=view")!)
         }
     }
 }

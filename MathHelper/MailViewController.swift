@@ -6,7 +6,7 @@ class MailViewController: UIViewController, MFMailComposeViewControllerDelegate{
     var banana = false
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(patternImage: UIImage(named: "Repeat")!)
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "Background")!)
         NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "bananaCheck", userInfo: nil, repeats: true)
     }
     @IBAction func SendMsg(sender: AnyObject) {

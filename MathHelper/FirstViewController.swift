@@ -9,6 +9,7 @@
 import UIKit
 
 class FirstViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate,UIAlertViewDelegate{
+    @IBOutlet weak var button: UIButton!
     @IBOutlet weak var chapterPicker: UIPickerView!
     let chapterData = [1,2,3,4,5,6,7,8,9,10,11,12,13]
     let lessonData = [1,2,3,4,5,6,7,8,9,10]
@@ -16,7 +17,7 @@ class FirstViewController: UIViewController,UIPickerViewDataSource,UIPickerViewD
     var data = ["ade","01","01"]
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(patternImage: UIImage(named: "Repeat")!)
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "Background")!)
         chapterPicker.delegate = self
         chapterPicker.dataSource = self
     }
@@ -128,32 +129,12 @@ class FirstViewController: UIViewController,UIPickerViewDataSource,UIPickerViewD
             // ...
         }
     }
-    func version(){
-        let url = NSURL(string: "https://www.codepixl.net/mathhelper/ver.txt")
-        let request = NSURLRequest(URL: url!)
-        NSURLCache.sharedURLCache().removeAllCachedResponses()
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {(response, data, error) in
-            var ver = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as? NSString
-            if(data != nil){
-                ver = NSString(data: data, encoding: NSASCIIStringEncoding)
-            }
-            println(ver!)
-            if(ver != NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as? NSString){
-                println("NEW VERSION!")
-                self.showVersionAlert(ver!)
-            }else{
-                UIApplication.sharedApplication().applicationIconBadgeNumber = 0
-            }
-        }
-        
-    }
     
     func update(){
         UIApplication.sharedApplication().openURL(NSURL(string: "https://codepixl.net/mathhelper/?update=true")!)
     }
     
     func otherStuff(){
-        version()
         if(UIApplication.sharedApplication().canOpenURL(NSURL(string:"puffin://")!) == true){
             println("Can open Puffin links")
         }else{
@@ -161,8 +142,9 @@ class FirstViewController: UIViewController,UIPickerViewDataSource,UIPickerViewD
         }
         if(NSUserDefaults.standardUserDefaults().boolForKey("alg")){
             chapterPicker.selectRow(1, inComponent: 0, animated: true)
+            data[0] = "ate"
         }else{
-        chapterPicker.selectRow(0, inComponent: 0, animated: true)
+            chapterPicker.selectRow(0, inComponent: 0, animated: true)
         }
         var v = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as? NSString
         if(NSUserDefaults.standardUserDefaults().boolForKey("changeLog"+v!) == false){

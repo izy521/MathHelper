@@ -12,7 +12,7 @@ class FifthViewController: UIViewController{
     
     override func viewDidLoad(){
         super.viewDidLoad()
-        view.backgroundColor = UIColor(patternImage: UIImage(named: "Repeat")!)
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "Background")!)
     }
     
     @IBAction func easter(sender: AnyObject) {

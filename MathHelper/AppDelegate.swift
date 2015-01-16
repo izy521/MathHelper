@@ -13,38 +13,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        var updateAction:UIMutableUserNotificationAction = UIMutableUserNotificationAction()
-        updateAction.identifier = "UPDATE_ACTION"
-        updateAction.title = "Update"
-        
-        var noAction:UIMutableUserNotificationAction = UIMutableUserNotificationAction()
-        noAction.identifier = "NO_ACTION"
-        noAction.destructive = true
-        noAction.title = "Later"
-        
-        updateAction.activationMode = UIUserNotificationActivationMode.Foreground
-        updateAction.authenticationRequired = true
-        noAction.activationMode = UIUserNotificationActivationMode.Background
-        noAction.authenticationRequired = true
-        
-        var updateCategory:UIMutableUserNotificationCategory = UIMutableUserNotificationCategory()
-        updateCategory.identifier = "UPDATE"
-        
-        let defaultActions:NSArray = [updateAction,noAction]
-        let minimalActions:NSArray = [updateAction,noAction]
-        
-        updateCategory.setActions(defaultActions, forContext: UIUserNotificationActionContext.Default)
-        updateCategory.setActions(minimalActions, forContext: UIUserNotificationActionContext.Minimal)
-        
         // NSSet of all our categories
-        
-        let categories:NSSet = NSSet(objects: updateCategory)
         let types:UIUserNotificationType = UIUserNotificationType.Alert | UIUserNotificationType.Badge
-        let mySettings:UIUserNotificationSettings = UIUserNotificationSettings(forTypes: types, categories: categories)
-        
+        let mySettings:UIUserNotificationSettings = UIUserNotificationSettings(forTypes: types, categories: nil)
         UIApplication.sharedApplication().registerUserNotificationSettings(mySettings)
         PushAppsManager.sharedInstance().startPushAppsWithAppToken("cad9d54b-97f1-4c8c-969f-bb49f2a4f961", withLaunchOptions: launchOptions)
         Flurry.startSession("SYN9YNB65VQVVJXPYVPZ")
+        if(NSUserDefaults.standardUserDefaults().valueForKey("lq_builtin") == nil){
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "lq_builtin")
+            NSLog("'Twas the nil before Christmas")
+        }
         return true
     }
 
@@ -76,17 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PushAppsManager.sharedInstance().didRegisterUserNotificationSettings(notificationSettings);
         
     }
-    
     func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forRemoteNotification userInfo: [NSObject : AnyObject], completionHandler: () -> Void) {
-        NSLog("RemoteNotification!")
-        PushAppsManager.sharedInstance().handleActionWithIdentifier(identifier, forRemoteNotification: userInfo, completionHandler: completionHandler);
-        if(identifier == "UPDATE_ACTION"){
-            NSLog("UPDATE!")
-            dispatch_async(dispatch_get_main_queue()){
-                var url = NSURL(string: "https://www.codepixl.net/mathhelper?update=true")
-                UIApplication.sharedApplication().openURL(url!)
-            }
-        }
         completionHandler()
         
     }
@@ -109,5 +77,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NSLog(error.localizedDescription)
         PushAppsManager.sharedInstance().updatePushError(error);
         
+    }
+}
+extension UIViewController {
+    func prefersStatusBarHidden() -> Bool {
+        return true
     }
 }

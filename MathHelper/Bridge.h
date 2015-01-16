@@ -10,4 +10,7 @@
 #define MathHelper_Bridge_h
 #import <PushApps/PushApps.h>
 #import "Flurry.h"
+#import "YHRoundBorderedButton.m"
+#import "SVWebViewController.h"
+#import "SVModalWebViewController.h"
 #endif

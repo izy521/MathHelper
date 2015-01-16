@@ -12,7 +12,7 @@ class ThirdViewController: UIViewController{
     
     override func viewDidLoad(){
         super.viewDidLoad()
-        view.backgroundColor = UIColor(patternImage: UIImage(named: "Repeat")!)
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "Background")!)
     }
     
     @IBAction func button(sender: AnyObject) {

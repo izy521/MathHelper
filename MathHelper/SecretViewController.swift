@@ -11,7 +11,7 @@ import UIKit
 class SecretViewController:UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(patternImage: UIImage(named: "Repeat")!)
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "Background")!)
     }
     @IBAction func byeneveragainplz(sender: AnyObject) {
         var story = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
