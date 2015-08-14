@@ -35,13 +35,13 @@ class FirstViewController: UIViewController,UIPickerViewDataSource,UIPickerViewD
             var preAlg = UIAlertAction(title: "Pre Algebra", style: UIAlertActionStyle.Destructive){
                 UIAlertAction in
                 NSUserDefaults.standardUserDefaults().setBool(false,forKey: "alg")
-                self.presentViewController(view as UIViewController, animated: true, completion: nil)
+                self.presentViewController(view as! UIViewController, animated: true, completion: nil)
             }
             
             var alg = UIAlertAction(title: "Algebra 1", style: UIAlertActionStyle.Destructive){
                 UIAlertAction in
                 NSUserDefaults.standardUserDefaults().setBool(true,forKey: "alg")
-                self.presentViewController(view as UIViewController, animated: true, completion: nil)
+                self.presentViewController(view as! UIViewController, animated: true, completion: nil)
             }
             ftnot.addAction(alg)
             ftnot.addAction(preAlg)
@@ -99,20 +99,25 @@ class FirstViewController: UIViewController,UIPickerViewDataSource,UIPickerViewD
         println("row: "+String(row)+" component: "+String(component))
     }
     func showPuffinAlert(){
-        var createAccountErrorAlert: UIAlertView = UIAlertView()
+        /**var createAccountErrorAlert: UIAlertView = UIAlertView()
         
         createAccountErrorAlert.delegate = self
         
         createAccountErrorAlert.title = "Oops!"
-        createAccountErrorAlert.message = "It seems you do not have the Puffin web browser installed, which is required for this app to work. You can go ahead, but be aware the video and textbook links will not work."
+        createAccountErrorAlert.message = "It seems you don't have the Puffin Web Browser installed, which may help improve your experience with this app. You may proceed, "
         createAccountErrorAlert.addButtonWithTitle("I understand- Proceed.")
         createAccountErrorAlert.addButtonWithTitle("I'll download Puffin for free.")
         
-        createAccountErrorAlert.show()
+        createAccountErrorAlert.show()**/
     }
     
     @IBAction func GoVideo(sender: AnyObject) {
-        UIApplication.sharedApplication().openURL(NSURL(string:"puffin://www.phschool.com/webcodes10/index.cfm?wcprefix=\(data[0])&wcsuffix=\(data[1])\(data[2])&area=view")!)
+        if(UIApplication.sharedApplication().canOpenURL(NSURL(string:"puffin://")!) == true){
+            UIApplication.sharedApplication().openURL(NSURL(string:"puffin://www.phschool.com/webcodes10/index.cfm?wcprefix=\(data[0])&wcsuffix=\(data[1])\(data[2])&area=view")!)
+        }else{
+            var web:SVModalWebViewController = SVModalWebViewController(address: "http://www.phschool.com/webcodes10/index.cfm?wcprefix=\(data[0])&wcsuffix=\(data[1])\(data[2])&area=view")
+            self.presentViewController(web, animated: true, completion: nil)
+        }
     }
     func showVersionAlert(ver: String){
         let alertController = UIAlertController(title: "New Version!", message: "There is a new version ("+ver+") available for MathHelper! Download it?", preferredStyle: .Alert)
@@ -131,7 +136,7 @@ class FirstViewController: UIViewController,UIPickerViewDataSource,UIPickerViewD
     }
     
     func update(){
-        UIApplication.sharedApplication().openURL(NSURL(string: "https://codepixl.net/mathhelper/?update=true")!)
+        UIApplication.sharedApplication().openURL(NSURL(string: "http://codepixl.net/MathHelper/?update=true")!)
     }
     
     func otherStuff(){
@@ -147,15 +152,15 @@ class FirstViewController: UIViewController,UIPickerViewDataSource,UIPickerViewD
             chapterPicker.selectRow(0, inComponent: 0, animated: true)
         }
         var v = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as? NSString
-        if(NSUserDefaults.standardUserDefaults().boolForKey("changeLog"+v!) == false){
-            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "changeLog"+v!)
-            let url = NSURL(string: "https://www.codepixl.net/mathhelper/log.txt")
+        /**if(NSUserDefaults.standardUserDefaults().boolForKey("changeLog") == false){
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "changeLog")
+            let url = NSURL(string: "http://codepixl.net/MathHelper/log.txt")
             let request = NSURLRequest(URL: url!)
             NSURLCache.sharedURLCache().removeAllCachedResponses()
             NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {(response, data, error) in
                 var changeLog = "Error getting changelog"
                 if(data != nil){
-                    changeLog = NSString(data: data, encoding: NSASCIIStringEncoding)!
+                    changeLog = NSString(data: data, encoding: NSASCIIStringEncoding)! as String
                     if(changeLog.rangeOfString("<html>") != nil){
                         changeLog = "Error getting changelog."
                     }
@@ -165,6 +170,6 @@ class FirstViewController: UIViewController,UIPickerViewDataSource,UIPickerViewD
                 alertController.addAction(ok)
                 self.presentViewController(alertController, animated: true, completion: nil)
             }
-        }
+        }**/
     }
 }

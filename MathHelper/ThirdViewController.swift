@@ -16,6 +16,11 @@ class ThirdViewController: UIViewController{
     }
     
     @IBAction func button(sender: AnyObject) {
-        UIApplication.sharedApplication().openURL(NSURL(string: "puffin://www.pearsonsuccessnet.com/")!)
+        if(UIApplication.sharedApplication().canOpenURL(NSURL(string:"puffin://")!) == true){
+            UIApplication.sharedApplication().openURL(NSURL(string: "puffin://www.pearsonsuccessnet.com/")!)
+        }else{
+            var web:SVModalWebViewController = SVModalWebViewController(address: "http://www.pearsonsuccessnet.com/")
+            self.presentViewController(web, animated: true, completion: nil)
+        }
     }
 }

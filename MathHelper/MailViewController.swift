@@ -43,7 +43,7 @@ class MailViewController: UIViewController, MFMailComposeViewControllerDelegate{
             MessageBox.text = ""
             var story = UIStoryboard(name: "Secret", bundle: NSBundle.mainBundle())
             var view: AnyObject = story.instantiateInitialViewController()
-            self.presentViewController(view as UIViewController, animated: true, completion: nil)
+            self.presentViewController(view as! UIViewController, animated: true, completion: nil)
         }
     }
 }

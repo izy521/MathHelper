@@ -28,7 +28,7 @@ class FifthViewController: UIViewController{
     @IBAction func welcome(sender: AnyObject) {
         var story = UIStoryboard(name: "Welcome", bundle: NSBundle.mainBundle())
         var view: AnyObject = story.instantiateInitialViewController()
-        self.presentViewController(view as UIViewController, animated: true, completion: nil)
+        self.presentViewController(view as! UIViewController, animated: true, completion: nil)
     }
     
     

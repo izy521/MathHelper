@@ -26,7 +26,6 @@
 		D8502F571A57F3520010FAFD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8502F561A57F3520010FAFD /* Foundation.framework */; };
 		D8502F591A57F3740010FAFD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8502F581A57F3740010FAFD /* UIKit.framework */; };
 		D86715D51A5A8C7C0022F3F4 /* FifthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86715D41A5A8C7C0022F3F4 /* FifthViewController.swift */; };
-		D86715D91A5B81DE0022F3F4 /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D86715D81A5B81DE0022F3F4 /* Images-2.xcassets */; };
 		D86C3CE31A5E547900818FA6 /* libFlurry_6.0.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D86C3C111A5E547900818FA6 /* libFlurry_6.0.0.a */; };
 		D86C3CE41A5E547900818FA6 /* _flurry_8h_source.html in Resources */ = {isa = PBXBuildFile; fileRef = D86C3C131A5E547900818FA6 /* _flurry_8h_source.html */; };
 		D86C3CE51A5E547900818FA6 /* _flurry_ad_banner_8h_source.html in Resources */ = {isa = PBXBuildFile; fileRef = D86C3C141A5E547900818FA6 /* _flurry_ad_banner_8h_source.html */; };
@@ -304,7 +303,6 @@
 		D8502F561A57F3520010FAFD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D8502F581A57F3740010FAFD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D86715D41A5A8C7C0022F3F4 /* FifthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FifthViewController.swift; sourceTree = "<group>"; };
-		D86715D81A5B81DE0022F3F4 /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-2.xcassets"; sourceTree = "<group>"; };
 		D86C3C101A5E547900818FA6 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
 		D86C3C111A5E547900818FA6 /* libFlurry_6.0.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_6.0.0.a; sourceTree = "<group>"; };
 		D86C3C131A5E547900818FA6 /* _flurry_8h_source.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = _flurry_8h_source.html; sourceTree = "<group>"; };
@@ -953,7 +951,6 @@
 				D86715D41A5A8C7C0022F3F4 /* FifthViewController.swift */,
 				D80D480F1A5CF6CB00967AE0 /* SixthViewController.swift */,
 				D8266EBC1A5E71BC00BF3CA4 /* SecretViewController.swift */,
-				D86715D81A5B81DE0022F3F4 /* Images-2.xcassets */,
 				D889F3BA1A575F0000C2C739 /* Images.xcassets */,
 				D889F3AF1A575F0000C2C739 /* Supporting Files */,
 				D8502F201A577F960010FAFD /* LaunchController.swift */,
@@ -1138,7 +1135,6 @@
 				D86C3D521A5E547900818FA6 /* all_73.html in Resources */,
 				D86C3D231A5E547900818FA6 /* interface_flurry_ad_interstitial.js in Resources */,
 				D86C3D121A5E547900818FA6 /* ftv2mo.png in Resources */,
-				D86715D91A5B81DE0022F3F4 /* Images-2.xcassets in Resources */,
 				D86C3D5D1A5E547900818FA6 /* files_66.html in Resources */,
 				D86C3D8B1A5E547900818FA6 /* search.css in Resources */,
 				D86C3D991A5E547900818FA6 /* FlurryiOSAdvertisingREADMEv6.0.0.pdf in Resources */,

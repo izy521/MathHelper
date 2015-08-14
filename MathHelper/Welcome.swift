@@ -15,6 +15,6 @@ class Welcome:UIViewController{
     @IBAction func finish(sender: AnyObject) {
         var story = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
         var view: AnyObject = story.instantiateInitialViewController()
-        self.presentViewController(view as UIViewController, animated: true, completion: nil)
+        self.presentViewController(view as! UIViewController, animated: true, completion: nil)
     }
 }

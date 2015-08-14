@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KOm-RV-4UW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KOm-RV-4UW">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -108,19 +108,19 @@
                                 <exclude reference="GQR-U7-73N"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="VZh-w0-f9j"/>
-                                <exclude reference="chI-76-F6f"/>
-                                <exclude reference="9ct-6M-KmU"/>
-                                <exclude reference="AeK-Xx-j6O"/>
-                                <exclude reference="fwP-c4-NCt"/>
-                                <exclude reference="iSM-TK-Cya"/>
                                 <exclude reference="rwP-g7-qtm"/>
                                 <exclude reference="hye-5O-vKw"/>
                                 <exclude reference="jDE-ul-Ks3"/>
                                 <exclude reference="riW-f7-F31"/>
-                                <exclude reference="dbs-2c-BxS"/>
+                                <exclude reference="9ct-6M-KmU"/>
+                                <exclude reference="AeK-Xx-j6O"/>
+                                <exclude reference="fwP-c4-NCt"/>
+                                <exclude reference="iSM-TK-Cya"/>
                                 <exclude reference="DAN-Xz-M6Z"/>
                                 <exclude reference="lKn-D6-k2f"/>
+                                <exclude reference="VZh-w0-f9j"/>
+                                <exclude reference="chI-76-F6f"/>
+                                <exclude reference="dbs-2c-BxS"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
@@ -132,19 +132,19 @@
                                 <include reference="GQR-U7-73N"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="VZh-w0-f9j"/>
-                                <include reference="chI-76-F6f"/>
-                                <include reference="9ct-6M-KmU"/>
-                                <include reference="AeK-Xx-j6O"/>
-                                <include reference="fwP-c4-NCt"/>
-                                <include reference="iSM-TK-Cya"/>
                                 <include reference="rwP-g7-qtm"/>
                                 <include reference="hye-5O-vKw"/>
                                 <include reference="jDE-ul-Ks3"/>
                                 <include reference="riW-f7-F31"/>
-                                <include reference="dbs-2c-BxS"/>
+                                <include reference="9ct-6M-KmU"/>
+                                <include reference="AeK-Xx-j6O"/>
+                                <include reference="fwP-c4-NCt"/>
+                                <include reference="iSM-TK-Cya"/>
                                 <include reference="DAN-Xz-M6Z"/>
                                 <include reference="lKn-D6-k2f"/>
+                                <include reference="VZh-w0-f9j"/>
+                                <include reference="chI-76-F6f"/>
+                                <include reference="dbs-2c-BxS"/>
                             </mask>
                         </variation>
                     </view>

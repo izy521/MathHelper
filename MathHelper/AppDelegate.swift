@@ -79,8 +79,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
 }
-extension UIViewController {
-    func prefersStatusBarHidden() -> Bool {
-        return true
-    }
-}
